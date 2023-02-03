@@ -1,4 +1,4 @@
-# Investimento
+# Investimento Financeiro
 Repositório em Python que permite o usuário avaliar quanto tempo demoraria para ficar milionário investindo determinada quantia de dinheiro por mês.
 Além disso, o programa pergunta ao usuário por quanto tempo manteria esse ritimo de investimento mensal, e printa no final o resultado.
 

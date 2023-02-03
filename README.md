@@ -20,6 +20,9 @@ Obs.: IR é aplicado apenas sobre o lucro.
 IOF é desconsiderada porque os períodos de tempo tendem a ser longos.
 Assume-se que não há taxa de administração.
 Considera-se um rendimento de liquidez diária que ocorre apenas em dias úteis (desconsidera-se finais de semana).
+<p>
+    É importante destacar que o programa apresenta um resultado aproximado e não totalmente realista, uma vez que é desconsiderado a IOF e possíveis flutuações de taxa que podem ocorrer ao longo dos anos.
+</p>
 
 # Exemplo de aplicação
 

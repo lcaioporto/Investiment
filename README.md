@@ -24,4 +24,6 @@ Considera-se um rendimento de liquidez diária que ocorre apenas em dias úteis 
 # Exemplo de aplicação
 
 O programa deve ser rodado no terminal:
+<p>
 <img width="710" alt="image" src="https://user-images.githubusercontent.com/115668120/216605133-e0ead84b-5f28-4c15-b7be-6fcb91aa29ef.png">
+</p>

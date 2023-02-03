@@ -61,7 +61,7 @@ anos = input("Insira por quantos anos pretende prosseguir com isso: ")
 
 valor_mensal = float(valor_mensal)
 taxa = float(taxa)/365 #taxa de rendimento diário
-dias = int(anos)*365 #número de dias (considerando apenas dias úteis - desconsidera-se finais de semana e feriados)
+dias = int(anos)*365 #número de dias totais
 
 montante = invest_mensal(valor_mensal, dias, taxa) #valor acumulado no tempo fornecido com o acúmulo mensal do input.
 dias_uteis = tempo_para_1M (valor_mensal, taxa) #tempo em dias que demoraria para atingir 1 milhão de reais.

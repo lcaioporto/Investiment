@@ -3,10 +3,18 @@ Repositório em Python que permite o usuário avaliar quanto tempo demoraria par
 Além disso, o programa pergunta ao usuário por quanto tempo manteria esse ritimo de investimento mensal, e printa no final o resultado.
 
 Por padrão, considera-se um desconto do imposto de renda (IR) da CDB:
-    Até 180 dias: 22,5%
-    De 181 até 360 dias: 20%
-    De 361 até 720 dias: 17,5%
-    Mais do que 721 dias: 15%
+<p>
+    Até 180 dias: 22,5%;
+</p>
+<p>
+    De 181 até 360 dias: 20%;
+</p>
+<p>
+    De 361 até 720 dias: 17,5%;
+</p>
+<p>
+    Mais do que 721 dias: 15%.
+</p>
 Obs.: IR é aplicado apenas sobre o lucro.
 
 IOF é desconsiderada porque os períodos de tempo tendem a ser longos.

@@ -13,7 +13,10 @@ Considera-se um rendimento de liquidez diária que ocorre apenas em dias úteis 
 '''
 
 def tempo_para_1M (valor_mensal, taxa):
-    '''Calcula o tempo para alcançar 1 milhão de reais'''
+    '''
+    Calcula o tempo, em dias, para alcançar 1 milhão de reais
+    Note que o tempo calculado leva em conta apenas os dias úteis, ou seja, o tempo real tende a ser maior (reajustado no código abaixo).
+    '''
     i = 0
     valor_atual = valor_mensal
     while valor_atual < 1000000:
@@ -35,6 +38,10 @@ def tempo_para_1M (valor_mensal, taxa):
     return i
 
 def invest_mensal(valor_mensal, tempo, taxa):
+    '''
+    Calcula e retorna o montante resultante do investimento mensal
+    durante o período de tempo inserido pelo usuário.
+    '''
     valor_atual = valor_mensal
     for i in range(tempo):
         if (i % 6 != 0 and i % 6 != 1) or i < 6 or i % 30 == 0: #seleciona o dia para garantir que é um dia útil.

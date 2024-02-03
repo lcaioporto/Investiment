@@ -1,32 +1,32 @@
 # Investimento Financeiro
-Repositório em Python que permite o usuário avaliar quanto tempo demoraria para ficar milionário investindo determinada quantia de dinheiro por mês.
-Além disso, o programa pergunta ao usuário por quanto tempo manteria esse ritimo de investimento mensal, e printa no final o resultado.
+Python repository that allows the user to evaluate how long it would take to become a millionaire by investing a certain amount of money per month.
+Furthermore, the program asks the user how long they would maintain this monthly investment rate, and prints the result at the end.
 
-Por padrão, considera-se um desconto do imposto de renda (IR) da CDB:
+By default, a CDB income tax (IR) discount is considered:
 <p>
-    Até 180 dias: 22,5%;
+     Up to 180 days: 22.5%;
 </p>
 <p>
-    De 181 até 360 dias: 20%;
+     From 181 to 360 days: 20%;
 </p>
 <p>
-    De 361 até 720 dias: 17,5%;
+     From 361 to 720 days: 17.5%;
 </p>
 <p>
-    Mais do que 721 dias: 15%.
+     More than 721 days: 15%.
 </p>
-Obs.: IR é aplicado apenas sobre o lucro.
+Note: IR is only applied to profit.
 
-IOF é desconsiderada porque os períodos de tempo tendem a ser longos.
-Assume-se que não há taxa de administração.
-Considera-se um rendimento de liquidez diária que ocorre apenas em dias úteis (desconsidera-se finais de semana).
+IOF is disregarded because time periods tend to be long.
+It is assumed that there is no administration fee.
+Daily liquidity income is considered to occur only on business days (weekends are not considered).
 <p>
-    É importante destacar que o programa apresenta um resultado aproximado e não totalmente realista, uma vez que é desconsiderado a IOF e possíveis flutuações de taxa que podem ocorrer ao longo dos anos.
+     It is important to highlight that the program presents an approximate and not entirely realistic result, as the IOF and possible rate fluctuations that may occur over the years are disregarded.
 </p>
 
-# Exemplo de aplicação
+# Application example
 
-O programa deve ser rodado no terminal:
+The program must be run in the terminal:
 <p>
-<img width="710" alt="image" src="https://user-images.githubusercontent.com/115668120/216605133-e0ead84b-5f28-4c15-b7be-6fcb91aa29ef.png">
+<img width="710" alt="image" src="https://github.com/lcaioporto/Investiment/blob/main/img/app_example.png">
 </p>

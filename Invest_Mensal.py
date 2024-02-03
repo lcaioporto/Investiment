@@ -1,21 +1,22 @@
 '''
-O programa calcula quanto tempo demora para uma pessoa ficar milionária investindo uma certa quantia todo mês.
-Além disso, dá a opção dela dizer por quanto tempo manteria esse ritimo de investimento mensal e qual seria seu resultado.
-Por padrão, considera-se um desconto do imposto de renda (IR) da CDB:
-    Até 180 dias: 22,5%
-    De 181 até 360 dias: 20%
-    De 361 até 720 dias: 17,5%
-    Mais do que 721 dias: 15%
-Obs.: IR é aplicado apenas sobre o lucro.
-IOF é desconsiderada porque os períodos de tempo tendem a ser longos.
-Assume-se que não há taxa de administração.
-Considera-se um rendimento de liquidez diária que ocorre apenas em dias úteis (desconsidera-se finais de semana).
+The program calculates how long it takes for a person to become a millionaire by investing a certain amount every month.
+Furthermore, it gives her the option to say how long she would maintain this monthly investment rhythm and what her results would be.
+By default, a CDB income tax (IR) discount is considered:
+    Up to 180 days: 22.5%
+    From 181 to 360 days: 20%
+    From 361 to 720 days: 17.5%
+    More than 721 days: 15%
+Note: IR is only applied to profit.
+IOF is disregarded because time periods tend to be long.
+It is assumed that there is no administration fee.
+Daily liquidity income is considered to occur only on business days (weekends are not considered).
 '''
 
 def tempo_para_1M (valor_mensal, taxa):
     '''
-    Calcula o tempo, em dias, para alcançar 1 milhão de reais
-    Note que o tempo calculado leva em conta apenas os dias úteis, ou seja, o tempo real tende a ser maior (reajustado no código abaixo).
+    Calculate the time, in days, to reach 1 million reais
+    Note that the calculated time only takes into account working days,
+    that is, the real time tends to be longer (adjusted in the code below).
     '''
     i = 0
     valor_atual = valor_mensal
@@ -39,8 +40,8 @@ def tempo_para_1M (valor_mensal, taxa):
 
 def invest_mensal(valor_mensal, tempo, taxa):
     '''
-    Calcula e retorna o montante resultante do investimento mensal
-    durante o período de tempo inserido pelo usuário.
+    Calculates and returns the amount resulting from the monthly investment
+    during the time period entered by the user.
     '''
     valor_atual = valor_mensal
     for i in range(tempo):
@@ -62,21 +63,21 @@ def invest_mensal(valor_mensal, tempo, taxa):
     
     return valor_atual
 
-valor_mensal = input("Insira quanto pretende investir mensalmente: ")
-taxa = input("Insira qual a taxa de rendimento anual do investimento (em decimal): ")
-anos = input("Insira por quantos anos pretende prosseguir com isso: ")
+valor_mensal = input("Enter how much you intend to invest monthly: ")
+taxa = input("Enter the annual rate of return on the investment (in decimal): ")
+anos = input("Enter how many years you plan to continue with this: ")
 
 valor_mensal = float(valor_mensal)
-taxa = float(taxa)/365 #taxa de rendimento diário
-dias = int(anos)*365 #número de dias totais
+taxa = float(taxa)/365 # daily yield rate
+dias = int(anos)*365   # number of total days
 
-montante = invest_mensal(valor_mensal, dias, taxa) #valor acumulado no tempo fornecido com o acúmulo mensal do input.
-dias_uteis = tempo_para_1M (valor_mensal, taxa) #tempo em dias que demoraria para atingir 1 milhão de reais.
-dias_totais = dias_uteis*365/251 #dias_uteis contam apenas os dias usados para o rendimento... para um tempo total deve-se ter um número maior
+montante = invest_mensal(valor_mensal, dias, taxa) # accumulated value in the time provided with the monthly input accumulation.
+dias_uteis = tempo_para_1M (valor_mensal, taxa)    # time in days that it would take to reach 1 million.
+dias_totais = dias_uteis*365/251                   # dias_uteis only counts the days used for income
 
 print("--------------------------------------------------------------------------------------------------------------------------------")
-print("RELATÓRIO DE INVESTIMENTO\n")
-print("Valor final:", f'{montante:.2f}', "reais.")
-print("Você ganhou", f'{(montante - valor_mensal*(int(anos)*12)):.2f}', "reais com o investimento.")
-print("Acumulando", valor_mensal, "reais por mês, você demoraria", f'{(dias_totais/12):.2f}', "meses para atingir 1 milhão de reais, o que daria", f'{(dias_totais/365):.2f}', "anos.")
+print("INVESTMENT REPORT\n")
+print("Final value:", f'{montante:.2f}')
+print("You won", f'{(montante - valor_mensal*(int(anos)*12)):.2f}', "dolars with the investment.")
+print("Accumulating", valor_mensal, "dollars per month, it would take you", f'{(dias_totais/12):.2f}', "months to reach 1 million reais, which would give", f'{(dias_totais/365):.2f}', "years.")
 print("--------------------------------------------------------------------------------------------------------------------------------")

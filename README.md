@@ -1,4 +1,4 @@
-# Investimento Financeiro
+# Financial investiment
 Python repository that allows the user to evaluate how long it would take to become a millionaire by investing a certain amount of money per month.
 Furthermore, the program asks the user how long they would maintain this monthly investment rate, and prints the result at the end.
 

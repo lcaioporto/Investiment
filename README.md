@@ -26,7 +26,18 @@ Daily liquidity income is considered to occur only on business days (weekends ar
 
 # Application example
 
-The program must be run in the terminal:
+The program must be run in the terminal. Then, a window will appear asking for information about the investment:
 <p>
-<img width="710" alt="image" src="https://github.com/lcaioporto/Investiment/blob/main/img/app_example.png">
+<img width="710" alt="image" src="img\img1.png">
+</p>
+
+You must provide information about all the parameters and then click on "Submit".
+When the program finishes successfully, you will see something like this in the terminal:
+<p>
+<img width="710" alt="image" src="img\img2.png">
+</p>
+
+Besides that, a graphic will be shown:
+<p>
+<img width="710" alt="image" src="img\img3.png">
 </p>

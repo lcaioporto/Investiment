@@ -83,6 +83,9 @@ def output_message_box(title, message):
 def interface():
     info = []
 
+    root = tk.Tk()
+    root.title("Investiment information")
+
     # Define the input fields
     initial_money_label = tk.Label(root, text="Enter how much money you already have:")
     initial_money_label.grid(row=0, column=0, padx=10, pady=5)
@@ -154,10 +157,6 @@ def interface():
     return info
 
 def main():
-    global root
-    root = tk.Tk()
-    root.title("Investiment information")
-
     initial_money, monthly_invest, tax, years, obj_money = interface()
 
     obj_money = float(obj_money)

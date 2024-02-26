@@ -32,7 +32,7 @@ The program must be run in the terminal. Then, a window will appear asking for i
 </p>
 
 You must provide information about all the parameters and then click on "Submit".
-When the program finishes successfully, you will see something like this in the terminal:
+When the program finishes successfully, a pop-up window will be shown with the investiment report:
 <p>
 <img width="710" alt="image" src="img\img2.png">
 </p>

@@ -159,24 +159,22 @@ def interface():
 def main():
     initial_money, monthly_invest, tax, years, obj_money = interface()
 
-    obj_money = float(obj_money)
-    initial_money = float(initial_money)
-    monthly_invest = float(monthly_invest)
-    daily_tax = float(tax)/365      # daily yield rate
-    n_days = int(years)*365   # number of total n_days
+    daily_tax = tax/365      # daily yield rate
+    n_days = years*365       # number of total n_days
 
     n_days, values = calc_invest(initial_money, monthly_invest, n_days, daily_tax) # accumulated value in the time provided with the monthly input accumulation.
     final_value = values[-1]
 
     n__bus_days = time_for_final_money(obj_money, initial_money, monthly_invest, daily_tax)           # time in n_days that it would take to reach 1 million.
     total_n_days = n__bus_days*365/251                       # n__bus_days only counts the n_days used for income
+    
+    inv_profit = final_value - monthly_invest*years*12 - initial_money
 
     inv_report = (
         f'Final value: {final_value:.2f} reais.\n\n' +
-        f'You won {(final_value - monthly_invest*(int(years)*12)):.2f} reais with the investment.\n\n' +
+        f'You won {(inv_profit):.2f} reais with the investment.\n\n' +
         f'Accumulating {monthly_invest} reais per month and starting with {initial_money} reais, it would take you {(total_n_days/12):.2f} months to reach {obj_money} reais, which would give {(total_n_days/365):.2f} years.'
     )
-    #messagebox.showinfo(title="INVESTMENT REPORT", message=inv_report)
 
     n_years = [day/365 for day in n_days]
     plot_graphic(

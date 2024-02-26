@@ -21,7 +21,7 @@ def plot_graphic(x_data, y_data, title=None, x_label=None, y_label=None):
     fig.update_yaxes(title_text=y_label)
     fig.show()
 
-def time_for_1M (im, monthly_invest, tax):
+def time_for_final_money(final_money, im, monthly_invest, tax):
     '''
     Calculate the time, in n_days, to reach 1 million reais
     Note that the calculated time only takes into account working n_days,
@@ -29,7 +29,7 @@ def time_for_1M (im, monthly_invest, tax):
     '''
     i = 0
     curr_value = im
-    while curr_value < 1000000:
+    while curr_value < final_money:
         total_daily_profit = curr_value*tax
         if i <= 180:
             real_profit = total_daily_profit * 0.775
@@ -105,22 +105,28 @@ def interface():
     years_entry = tk.Entry(root)
     years_entry.grid(row=3, column=1, padx=10, pady=5)
 
+    money_label = tk.Label(root, text="Enter how much money you intend to achieve: ")
+    money_label.grid(row=4, column=0, padx=10, pady=5)
+    money_entry = tk.Entry(root)
+    money_entry.grid(row=4, column=1, padx=10, pady=5)
+
     # Function to retrieve user input
     def submit(output):
         initial_money = initial_money_entry.get()
         monthly_invest = monthly_invest_entry.get()
         tax = tax_entry.get()
         years = years_entry.get()
+        expt_money = money_entry.get()
 
         if not (initial_money and monthly_invest and tax and years):
             print("Please fill in all fields.")
         
-        output.extend([initial_money, monthly_invest, tax, years])
+        output.extend([initial_money, monthly_invest, tax, years, expt_money])
         root.destroy()
 
     # Button to submit the input
     submit_button = tk.Button(root, text="Submit", command= lambda: submit(info))
-    submit_button.grid(row=5, columnspan=2, padx=10, pady=10)
+    submit_button.grid(row=6, columnspan=2, padx=10, pady=10)
 
     # Run the Tkinter event loop
     root.mainloop()
@@ -128,17 +134,21 @@ def interface():
     return info
 
 def main():
-    initial_money, monthly_invest, tax, years = interface()
+    initial_money, monthly_invest, tax, years, obj_money = interface()
 
-    initial_money = float(initial_money)
-    monthly_invest = float(monthly_invest)
-    tax = float(tax)/365 # daily yield rate
-    n_days = int(years)*365   # number of total n_days
-
+    try:
+        obj_money = float(obj_money)
+        initial_money = float(initial_money)
+        monthly_invest = float(monthly_invest)
+        tax = float(tax)/365      # daily yield rate
+        n_days = int(years)*365   # number of total n_days
+    except ValueError:
+        print("Invalid entry. The input needs to be a number.")
+    
     n_days, values = calc_invest(initial_money, monthly_invest, n_days, tax) # accumulated value in the time provided with the monthly input accumulation.
     final_value = values[-1]
 
-    n__bus_days = time_for_1M(initial_money, monthly_invest, tax)           # time in n_days that it would take to reach 1 million.
+    n__bus_days = time_for_final_money(obj_money, initial_money, monthly_invest, tax)           # time in n_days that it would take to reach 1 million.
     total_n_days = n__bus_days*365/251                       # n__bus_days only counts the n_days used for income
 
     inv_report = (
@@ -146,7 +156,7 @@ def main():
         'INVESTMENT REPORT\n' +
         f'Final value: {final_value:.2f} reais\n' +
         f'You won {(final_value - monthly_invest*(int(years)*12)):.2f} reais with the investment.\n' +
-        f'Accumulating {monthly_invest} reais per month and starting with {initial_money} reais, it would take you {(total_n_days/12):.2f} months to reach 1 million reais, which would give {(total_n_days/365):.2f} years.'
+        f'Accumulating {monthly_invest} reais per month and starting with {initial_money} reais, it would take you {(total_n_days/12):.2f} months to reach {obj_money} reais, which would give {(total_n_days/365):.2f} years.'
         "\n==============================================================================================================================="
     )
     print(inv_report)
